@@ -46,6 +46,7 @@
 
 ## v1.0 submission checklist
 - App Store Connect's **App Review Information → Notes** field isn't marked as required, but a first submission without it is rejected under Guideline 2.1 (Information Needed). Remind the developer before any v1.0 submission.
+- If the developer declines or skips the notes, say plainly that the submission will likely be rejected under Guideline 2.1 and cost a review round-trip, and repeat it at the point of submission (including the TestFlight → App Store step). The `--release` check only guards the fastlane upload: a submission made straight from App Store Connect with an empty Notes field gets past it.
 - The notes live in `fastlane/metadata/review_information/notes.txt` and upload with `fastlane ios metadata`; the `--release` check refuses them while any `TODO` remains.
 - `docs/app-review-information.md` has Apple's full list and the checklist: a device screen recording from launch (with account deletion, content reporting and paid flows where they exist), purpose and audience, setup steps and demo credentials, external services, regional differences, and any regulatory documents.
 
