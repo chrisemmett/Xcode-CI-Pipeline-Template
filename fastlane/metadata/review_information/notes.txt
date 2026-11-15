@@ -1,4 +1,4 @@
-Screen recording: TODO link to a recording on a physical device, latest iOS, from launch through the typical flow (docs/app-review-information.md).
+Screen recording: attached to our reply to App Review in App Store Connect.
 
 Purpose and audience: TODO what the app does, who it is for, the problem it solves and the value it provides.
 

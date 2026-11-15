@@ -13,8 +13,8 @@ It starts as a skeleton of the items below marked `TODO`; the lane's
 
 Some items don't fit in the text file:
 
-- **The screen recording** (item 1) is a video. Attach it in App Store Connect
-  and put a link to it in the notes.
+- **The screen recording** (item 1) is a video. Attach it to your reply to App
+  Review in App Store Connect; it doesn't need a link in the notes.
 - **Demo account credentials** go in App Store Connect's *Sign-in required*
   fields, not in a committed file. If the app has several account types, say in
   the notes where to get the others rather than committing passwords.
@@ -59,7 +59,7 @@ The rejection text, verbatim, as received for a new app submission:
 - [ ] Screen recording on a physical device, latest iOS, starting from launch:
       the typical flow, plus sign-up, sign-in and account deletion, reporting and
       blocking of user-generated content, and paid content, where the app has them.
-      Attached in App Store Connect and linked from the notes.
+      Attached to the reply to App Review in App Store Connect.
 - [ ] `notes.txt` covers items 2 to 6, with no `TODO` left.
 - [ ] Demo account credentials in App Store Connect's *Sign-in required* fields
       (one per account type), if the app has accounts.
