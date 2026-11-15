@@ -1,5 +1,13 @@
 # {{DISPLAY_NAME}} project guide
 
+<!-- template:start -->
+## This repository is the template, not an app
+`setup.sh` removes this section when it turns the template into an app. Until then:
+- The template has only `main`; there is no `pre-prod`. Cut branches from `main` and open their PRs against `main`. The Branching, TestFlight and v1.0 sections below describe the apps made from the template.
+- CI doesn't run here: the workflows wait in `.github/workflows-template/` until `setup.sh` moves them.
+- Keep changes app-neutral and leave the `{{PLACEHOLDER}}`s in place. `CONTRIBUTING.md` has the rules.
+<!-- template:end -->
+
 <!-- From the iOS app template. Keep what's true, delete what isn't, and add
      the project's own rules. Every line here is read at the start of every
      Claude session, so keep it to things that change what Claude does. -->
@@ -37,15 +45,19 @@
 - There are no snapshot tests. The owner checks UI changes by eye on a device, so a PR that changes the UI says what to look at.
 
 ## Branching
+In short: `pre-prod` is active development, and `main` is the released app.
+
 - `main` reflects what's on the App Store. It is the release-of-record, tagged on every release (`appstore-<version>`), and nothing is developed on it. Expect `pre-prod` to be far ahead of it.
 - `pre-prod` is the integration branch, tested on the Simulator and TestFlight.
 - Cut every feature, fix and docs branch from an up-to-date `pre-prod`, and open its PR against `pre-prod`. Never target `main` with a dev branch's PR, even when asked to "merge to main" as a shorthand: confirm first.
 - The only branch that merges into `main` is `pre-prod` itself, through a `pre-prod` → `main` PR when the owner releases (`main-source-guard.yml` enforces it). Don't open that PR unless asked.
 - Never commit or push directly to `main` or `pre-prod`: a ruleset rejects it. Anything that commits, like the TestFlight build-number bump, does it on a short-lived branch merged by PR.
 - If `main` ever carries a commit `pre-prod` lacks, merge `main` back into `pre-prod` through a PR.
+- If `pre-prod` doesn't exist on `origin` (setup creates it, but the push can be skipped or fail) and you're about to commit to `main` or base work on it, stop and offer to create `pre-prod` from `main` and push it, then branch from `pre-prod`. Don't create it without asking.
 
 ## v1.0 submission checklist
 - App Store Connect's **App Review Information → Notes** field isn't marked as required, but a first submission without it is rejected under Guideline 2.1 (Information Needed). Remind the developer before any v1.0 submission.
+- If the developer declines or skips the notes, say plainly that the submission will likely be rejected under Guideline 2.1 and cost a review round-trip, and repeat it at the point of submission (including the TestFlight → App Store step). The `--release` check only guards the fastlane upload: a submission made straight from App Store Connect with an empty Notes field gets past it.
 - The notes live in `fastlane/metadata/review_information/notes.txt` and upload with `fastlane ios metadata`; the `--release` check refuses them while any `TODO` remains.
 - `docs/app-review-information.md` has Apple's full list and the checklist: a device screen recording from launch (with account deletion, content reporting and paid flows where they exist), purpose and audience, setup steps and demo credentials, external services, regional differences, and any regulatory documents.
 
