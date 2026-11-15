@@ -44,6 +44,11 @@
 - Never commit or push directly to `main` or `pre-prod`: a ruleset rejects it. Anything that commits, like the TestFlight build-number bump, does it on a short-lived branch merged by PR.
 - If `main` ever carries a commit `pre-prod` lacks, merge `main` back into `pre-prod` through a PR.
 
+## v1.0 submission checklist
+- App Store Connect's **App Review Information → Notes** field isn't marked as required, but a first submission without it is rejected under Guideline 2.1 (Information Needed). Remind the developer before any v1.0 submission.
+- The notes live in `fastlane/metadata/review_information/notes.txt` and upload with `fastlane ios metadata`; the `--release` check refuses them while any `TODO` remains.
+- `docs/app-review-information.md` has Apple's full list and the checklist: a device screen recording from launch (with account deletion, content reporting and paid flows where they exist), purpose and audience, setup steps and demo credentials, external services, regional differences, and any regulatory documents.
+
 ## TestFlight
 - Use the `release-to-testflight` skill to ship a build, and `signing-certs` for certificate and profile problems.
 - Deploy from the current branch (typically `pre-prod`). Never deploy from `main`.

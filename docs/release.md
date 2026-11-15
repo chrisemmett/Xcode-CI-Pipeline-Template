@@ -125,7 +125,10 @@ with `--release` first, which also refuses anything still marked `TODO`.
 
 App Review's contact comes from the environment so nobody's phone number is
 committed: `REVIEW_FIRST_NAME`, `REVIEW_LAST_NAME`, `REVIEW_EMAIL`,
-`REVIEW_PHONE` (with the country code). The age rating, App Privacy answers,
+`REVIEW_PHONE` (with the country code). The review notes
+(`review_information/notes.txt`) aren't marked as required in App Store
+Connect, but a first submission without them is rejected:
+`docs/app-review-information.md` lists what they need. The age rating, App Privacy answers,
 pricing and availability are set in App Store Connect by hand.
 
 ## After an App Store release
