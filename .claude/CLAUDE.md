@@ -51,6 +51,7 @@
 - The only branch that merges into `main` is `pre-prod` itself, through a `pre-prod` → `main` PR when the owner releases (`main-source-guard.yml` enforces it). Don't open that PR unless asked.
 - Never commit or push directly to `main` or `pre-prod`: a ruleset rejects it. Anything that commits, like the TestFlight build-number bump, does it on a short-lived branch merged by PR.
 - If `main` ever carries a commit `pre-prod` lacks, merge `main` back into `pre-prod` through a PR.
+- If `pre-prod` doesn't exist on `origin` (setup creates it, but the push can be skipped or fail) and you're about to commit to `main` or base work on it, stop and offer to create `pre-prod` from `main` and push it, then branch from `pre-prod`. Don't create it without asking.
 
 ## v1.0 submission checklist
 - App Store Connect's **App Review Information → Notes** field isn't marked as required, but a first submission without it is rejected under Guideline 2.1 (Information Needed). Remind the developer before any v1.0 submission.
