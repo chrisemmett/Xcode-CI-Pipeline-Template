@@ -1,5 +1,13 @@
 # {{DISPLAY_NAME}} project guide
 
+<!-- template:start -->
+## This repository is the template, not an app
+`setup.sh` removes this section when it turns the template into an app. Until then:
+- The template has only `main`; there is no `pre-prod`. Cut branches from `main` and open their PRs against `main`. The Branching, TestFlight and v1.0 sections below describe the apps made from the template.
+- CI doesn't run here: the workflows wait in `.github/workflows-template/` until `setup.sh` moves them.
+- Keep changes app-neutral and leave the `{{PLACEHOLDER}}`s in place. `CONTRIBUTING.md` has the rules.
+<!-- template:end -->
+
 <!-- From the iOS app template. Keep what's true, delete what isn't, and add
      the project's own rules. Every line here is read at the start of every
      Claude session, so keep it to things that change what Claude does. -->
