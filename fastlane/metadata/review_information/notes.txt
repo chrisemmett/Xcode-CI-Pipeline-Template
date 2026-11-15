@@ -1,1 +1,11 @@
-TODO: anything App Review needs to try the app (a demo mode, a test account).
+Screen recording: attached to our reply to App Review in App Store Connect.
+
+Purpose and audience: TODO what the app does, who it is for, the problem it solves and the value it provides.
+
+Setup and main features: TODO how to reach each main feature, plus any sample files. Demo account credentials go in the Sign-in required fields, one per account type.
+
+External services: TODO the data providers, authentication, payment or AI services the app relies on, or "None: the app works entirely on device."
+
+Regional differences: TODO any differences by region, or "The app works the same in every region."
+
+Regulated industry or third-party material: TODO documentation that shows authorisation, or "Not applicable."
