@@ -45,6 +45,8 @@
 - There are no snapshot tests. The owner checks UI changes by eye on a device, so a PR that changes the UI says what to look at.
 
 ## Branching
+In short: `pre-prod` is active development, and `main` is the released app.
+
 - `main` reflects what's on the App Store. It is the release-of-record, tagged on every release (`appstore-<version>`), and nothing is developed on it. Expect `pre-prod` to be far ahead of it.
 - `pre-prod` is the integration branch, tested on the Simulator and TestFlight.
 - Cut every feature, fix and docs branch from an up-to-date `pre-prod`, and open its PR against `pre-prod`. Never target `main` with a dev branch's PR, even when asked to "merge to main" as a shorthand: confirm first.
